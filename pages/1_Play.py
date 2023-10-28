@@ -1,5 +1,4 @@
 import streamlit as st
-import numpy as np
 
 def calc_score(xg_guess, xg, psxg_guess, psxg):
 

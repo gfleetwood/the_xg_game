@@ -16,21 +16,21 @@ data = {
 
 st.title("The xG Game")
 
-st.video(data[1]["goal"])
+col1, col2 = st.columns(2)
 
-#col1, col2 = st.columns(2)
+col1.video(data[1]["goal"])
 
-xg_guess = st.slider("Guess The xG %", min_value = 0, max_value = 100, value = 50, step = 1)
-psxg_guess = st.slider("Guess The PSxG %", min_value = 0, max_value = 100, value = 50, step = 1)
-submit = st.button("Submit")
-placeholder1 = st.text("""Your score will show here after submission.""")
+xg_guess = col2.slider("Guess The xG %", min_value = 0, max_value = 100, value = 50, step = 1)
+psxg_guess = col2.slider("Guess The PSxG %", min_value = 0, max_value = 100, value = 50, step = 1)
+submit = col2.button("Submit")
+placeholder1 = col2.text("""Your score will show here after submission.""")
 #next_goal = st.button("Go To Next Goal")
 
 if submit:
   with placeholder1.container(): 
     st.text("""
-    Your xG: {} - Actual xG: {}
-    Your PSxG: {} - Actual PSxG: {}
+    Your xG: {}% - Actual xG: {}% 
+    Your PSxG: {}% - Actual PSxG: {}% 
     Your Score: {}
     """.format(xg_guess, data[st.session_state["counter"]]["xg"], psxg_guess, data[st.session_state["counter"]]["psxg"], calc_score(xg_guess, data[st.session_state["counter"]]["xg"], psxg_guess, data[st.session_state["counter"]]["psxg"])))
     

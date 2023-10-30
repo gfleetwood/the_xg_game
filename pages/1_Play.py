@@ -8,15 +8,15 @@ def calc_score(xg_guess, xg, psxg_guess, psxg):
   
 def increment_counter():
   st.session_state.counter += 1
-  
-counter = 1
-if "counter" not in st.session_state: st.session_state["counter"] = counter
-if st.session_state["counter"] > len(data): st.session_state["counter"] = 1
 
 data = {
 1: {"goal": 'https://www.youtube.com/watch?v=qAG6FThzX18', "xg": 14, "psxg": 50},
 2: {"goal": 'https://www.youtube.com/watch?v=dbH60x3l9o8', "xg": 42, "psxg": 93},
 }
+  
+counter = 1
+if "counter" not in st.session_state: st.session_state["counter"] = counter
+if st.session_state["counter"] > len(data): st.session_state["counter"] = 1
 
 st.title("The xG Game")
 
